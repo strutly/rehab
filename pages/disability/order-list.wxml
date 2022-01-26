@@ -1,0 +1,18 @@
+<view class="search-box">
+  <view class="tc-icon tc-search"></view>
+  <input type="text" placeholder="患者姓名" placeholder-class="search-placeholder" bindinput="search"/>
+</view>
+
+<navigator url="/pages/disability/order?index={{index}}" class="item" wx:for="{{orders}}" wx:key="index">
+  <view class="item-head">
+    <view class="item-title">{{item.name}}</view>
+    <view class="item-value">
+      <text class="abnormal" wx:if="{{item.abnormal>0}}">异常{{item.abnormal}}</text>
+      <text class="normal" wx:if="{{item.normal>0}}">正常{{item.normal}}</text>
+    </view>
+  </view>
+  <view class="item-head">
+    <view class="item-title">{{item.phone}}</view>
+    <view class="item-value value-time">{{item.createTime}}</view>
+  </view>  
+</navigator>

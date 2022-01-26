@@ -1,0 +1,51 @@
+.logo{
+  display: block;
+  width: 250rpx;
+  height: 250rpx;
+  margin: 120rpx auto 80rpx;
+}
+.title{
+  text-align: center;
+  font-size: 34rpx;
+  color: #866FFD;
+  font-weight: bolder;
+  margin: 60rpx auto 30rpx;
+}
+.des{
+  text-indent:1rem;
+  line-height: 1.4;
+  font-size: 28rpx;
+  color: #7f7f7f;
+  padding: 30rpx 60rpx;
+}
+
+.assess{
+  width: 250rpx;
+  height: 250rpx;
+  font-size: 40rpx;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #866FFD;
+  color: #fff;
+  border-radius: 50%;
+  margin: 130rpx auto 0;
+}
+
+.btns{
+  display: flex;
+  margin-top: 96rpx;
+}
+
+.btn{
+  background-color: #fff;
+  color: #866FFD;
+  text-decoration: underline;
+  flex:1;  
+  margin: 0 auto;
+}
+.btn::after {
+  border: none;
+}

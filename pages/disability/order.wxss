@@ -1,0 +1,28 @@
+@import "/style/tree.wxss";
+
+.form-radio{  
+  width: 20rpx;
+  height: 20rpx;
+  border:4rpx solid #aaa;
+  border-radius: 50%;
+}
+.form-radio-checked{
+  display: inline-block;
+  border-color:#866FFD;
+}
+.form-radio-checked::after{  
+  color: #866FFD;
+  font: normal normal normal 14px/1 "weui";
+  content: "\EA08";
+  font-weight: bold;  
+  text-align: center;
+  width: 20rpx;
+  height: 20rpx;
+  line-height: 20rpx;
+  font-size: 12rpx;  
+  transform:translate(-50%, -50%) scale(1);
+  -webkit-transform:translate(-50%, -50%) scale(1);
+  position: absolute;
+  top: 40%; 
+  left: 50%;  
+}

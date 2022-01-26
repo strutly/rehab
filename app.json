@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/login",
+    "pages/disability/tree",
+    "pages/disability/form",
+    "pages/disability/order-list",
+    "pages/disability/order",    
+    "pages/disability/result",
+    "pages/disability/detail"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "清云康复到家",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

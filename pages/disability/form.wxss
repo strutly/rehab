@@ -1,0 +1,196 @@
+/* pages/disability/form.wxss */
+Page{
+  background-color: #f3f3f3;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  font-size: 34rpx;
+}
+.main-box{
+  padding-bottom: calc(120rpx + constant(safe-area-inset-bottom));
+  padding-bottom: calc(120rpx + env(safe-area-inset-bottom));
+}
+.show{
+  animation: right-to-left 1s ;
+  -moz-animation: right-to-left 1s ;
+  -webkit-animation: right-to-left 1s;
+}
+@keyframes right-to-left{
+  0% {max-width:0;overflow:hidden;}
+  100% {max-width: 100rem;}  
+}
+.form-item{
+  border-radius: 24rpx;
+  background-color: #fff;
+  width: 92%;
+  margin:30rpx auto;
+  overflow: hidden;
+}
+.item-title{
+  
+  text-align: center;
+  overflow: hidden;
+  line-height: 100rpx;
+  height: 100rpx;
+}
+/*
+.form-item:nth-child(odd) .item-title{
+  background-color: #866FFD;
+}
+*/
+/* :nth-child(even) */
+.form-item .item-title{
+  background-color:#e6e6ff;
+}
+.item-content .form-check__label:last-child{
+  padding-bottom: 30rpx;
+}
+.form-check__label{
+  display: flex;
+  align-items: top;
+  padding: 30rpx 30rpx 0;
+}
+.form-cell__hd{
+  margin-right: 30rpx;
+  position: relative;
+}
+.form-cell__bd{
+  flex: 1;
+}
+.btn-box{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.btn{
+  width: 76%;
+  margin: 30rpx auto;
+  background:#866FFD;
+  height: 90rpx;
+  text-align: center;
+  color: #fff;
+  line-height: 90rpx;
+  border-radius: 45rpx;
+}
+.form-radio{  
+  width: 40rpx;
+  height: 40rpx;
+  border:4rpx solid #aaa;
+  border-radius: 50%;
+}
+.form-radio-checked{
+  display: inline-block;
+  border-color:#866FFD;
+}
+.form-radio-checked::after{  
+  color: #866FFD;
+  font: normal normal normal 14px/1 "weui";
+  content: "\EA08";
+  font-weight: bold;  
+  text-align: center;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;  
+  transform:translate(-50%, -50%) scale(1);
+  -webkit-transform:translate(-50%, -50%) scale(1);
+  position: absolute;
+  top: 24rpx;
+  left: 50%;  
+}
+
+.form-checkbox{  
+  width: 40rpx;
+  height: 40rpx;
+  border: 4rpx solid #aaa;
+  border-radius: 5rpx;
+}
+.form-checkbox-checked{
+  position: relative;
+  border-color:#866FFD;
+}
+.form-checkbox-checked::after{
+  position: absolute; 
+  color: #866FFD;
+  font: normal normal normal 14px/1 "weui";
+  content: "\EA08";
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  font-weight: bold;   
+  transform:translate(-50%, -50%) scale(1);
+  -webkit-transform:translate(-50%, -50%) scale(1);
+  text-align: center;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+radio{
+  width: 40rpx;
+  height: 40rpx;
+  border:4rpx solid #aaa;
+  border-radius: 50%;  
+}
+
+radio-group .wx-radio-input{
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 40rpx;
+  height: 40rpx;
+  border: 4rpx solid #aaa !important;/* 设置边框（外圆） */
+}
+
+radio-group .wx-radio-input.wx-radio-input-checked{  
+  width: 40rpx !important;
+  height: 40rpx !important;
+  border-color:#866FFD !important;
+  background:#866FFD !important;
+}
+
+radio-group .wx-radio-input.wx-radio-input-checked::before{
+  border-radius: 50%;
+  text-align: center;
+  color: #866FFD;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background-color: #fff !important;
+  font-size: 24rpx;
+  font-weight: bolder;
+  transform:translate(-50%, -50%) scale(1);
+  -webkit-transform:translate(-50%, -50%) scale(1);
+}
+checkbox .wx-checkbox-input {
+  width: 40rpx;
+  height: 40rpx;
+  border: 4rpx solid #aaa !important;/* 设置边框（外圆） */
+}
+/*checkbox选中后样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  border: 4rpx solid #866FFD !important;
+  background:#fff !important;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 50%;
+  text-align: center;
+  color: #866FFD;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background-color: #fff !important;
+  font-size: 24rpx;
+  font-weight: bolder;
+  transform:translate(-50%, -50%) scale(1);
+  -webkit-transform:translate(-50%, -50%) scale(1);
+}
+
+
+

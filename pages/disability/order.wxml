@@ -1,0 +1,2 @@
+<include src="/pages/template/tree-detail.wxml"></include>
+<include src="/pages/template/video.wxml"></include>

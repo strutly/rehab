@@ -1,0 +1,42 @@
+
+  <view class="chain-panel chain-show}}" >
+    <view>
+      <view><view class="chain-btn chain-top" bindtap="shrink" data-index="0">{{chainData.title}}</view></view>
+      <view wx:if="{{!open[0]}}">
+        <block wx:for="{{chainData.children}}" wx:key="index">
+          <view class="chain-view" bindtap="shrink" data-index="0{{index}}">
+            <view class="chain-btn chain-second chain-view-right">{{item.title}}</view>
+          </view>
+          <view class="chain-view chain-child" wx:if="{{!open['0'+index]}}">
+              <view wx:for="{{item.children}}" wx:for-item="first" wx:for-index="index1" wx:key="index1" class="chain-view chain-view-right">
+                <view class="chain-btn chain-view-right score-{{first.score}}">{{first.title}}</view>
+                <view class="videos" wx:if="{{first.checked}}">
+                  <checkbox-group bindchange="checkboxChange" data-index="{{index1}}" data-type="{{first.type}}">
+                    <view class="video" wx:for="{{first.videos}}" wx:for-index="k" wx:key="k" wx:for-item="video">
+                      <label class="form-check__label">
+                        <checkbox class="form-cell__hd" value="{{k}}" checked/>
+                        <view class="form-cell__bd">{{video.title}}</view>
+                      </label>
+                    </view>                    
+                  </checkbox-group>                                   
+                </view>                
+              </view>
+              <view class="chain-view chain-view-right" wx:if="{{item.checked}}">
+                <view class="videos">
+                  <checkbox-group bindchange="checkboxChange" data-type="{{item.type}}">
+                    <view class="video" wx:for="{{item.videos}}" wx:for-index="k" wx:key="k" wx:for-item="video">
+                      <label class="form-check__label">
+                        
+                          <checkbox class="form-cell__hd"  value="{{k}}" checked/>
+                        
+                        <view class="form-cell__bd">{{video.title}}</view>
+                      </label>
+                    </view>                    
+                  </checkbox-group>                                   
+                </view>
+              </view>
+          </view>
+        </block>
+      </view>
+  </view>
+</view>

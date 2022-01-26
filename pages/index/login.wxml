@@ -1,0 +1,13 @@
+<view class="prompt" wx:if="{{prompt}}">{{promptMsg}}</view>
+<image src="/images/logo.png" class="logo"></image>
+
+<view class="des">本系统基于康复专家知识，应用清华大学人工智能技术，帮助健康照护师快速生成失能训练评估、形成训练方案。本小程序仅面向经“互联网+健康照护”信用体系认证的健康照护师，同意获取当前微信手机号码授权后，系统将确认是否为注册健康照护师，通过后自动开启计划生成等高级功能。\n已注册注册的健康照护师用户首次登陆请点击下方按钮授权登录。其他用户只能浏览部分功能。</view>
+
+<navigator url="/pages/disability/form" class="assess" bindtap="assess"><text>开始\n评估</text></navigator>
+<view class="btns">
+  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{!ifAuth}}" class="btn">身份验证</button>
+  <button class="btn" bindtap="order">我的订单</button>
+</view>
+
+
+

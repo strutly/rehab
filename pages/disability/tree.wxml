@@ -1,0 +1,32 @@
+<include src="/pages/template/tree.wxml"></include>
+<include src="/pages/template/video.wxml"></include>
+<view class="prompt" wx:if="{{prompt}}">{{promptMsg}}</view>
+<view class="mask" catchtouchmove='true' wx:if="{{modal}}" bindtap="formModal"></view>
+  <form bindsubmit="submit" class="form-box" wx:if="{{modal}}">
+    <input name="sex" value="{{formData.sex}}" hidden />
+    
+    <view class="form-item" >
+      <view class="form-lable">姓名</view>
+      <input  class="form-value" placeholder="请输入照护对象的姓名" name="name" type="text"/>
+    </view>
+    <view class="form-item" >
+      <view class="form-lable">电话</view>
+      <input class="form-value" placeholder="请输入照护对象的电话" name="phone" type="number"/>
+    </view>
+    <view class="form-item" >
+      <view class="form-lable">性别</view>      
+      <picker mode="selector" range="{{sexArray}}" class="form-value" bindchange="pickerChange">{{sexArray[formData.sex]}}</picker>
+    </view>
+    <view class="form-item" >
+      <view class="form-lable">年龄</view>
+      <input class="form-value" placeholder="请输入照护对象的年龄" name="age" type="number"/>
+    </view>    
+    <button class="btn" form-type="submit">保存</button>
+  </form>
+
+
+<view class="btn-box">
+  <view class="btn" bindtap="formModal">保存方案</view>
+</view>
+
+

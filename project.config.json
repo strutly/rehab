@@ -9,7 +9,7 @@
     ]
   },
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": true,
     "postcss": true,
@@ -35,7 +35,7 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "useIsolateContext": false,
+    "useIsolateContext": true,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -47,7 +47,7 @@
     "ignoreUploadUnusedFiles": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.19.4",
+  "libVersion": "2.19.6",
   "appid": "wx2a5d27d12ce61e35",
   "projectname": "rehab",
   "debugOptions": {

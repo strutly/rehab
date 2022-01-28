@@ -1,10 +1,10 @@
 var that;
 import WxValidate from '../../utils/WxValidate';
-import util from "../../utils/util";
+import Api from '../../config/api.js';
 Page({
   data: {    
-    sexArray:['请选择性别','男','女'],
-    formData:{sex:0},
+    genderArray:['请选择性别','男','女'],
+    formData:{gender:0},
     chainData: {
       title: "居家照护方案",
       children: [{
@@ -254,7 +254,7 @@ Page({
         required:true,
         tel:true
       },
-      sex:{
+      gender:{
         min:1
       },
       age:{
@@ -271,7 +271,7 @@ Page({
         required:'请填写手机号',
         tel:'请填写正确的手机号'
       },
-      sex:{
+      gender:{
         min:"请选择性别"
       },
       age:{
@@ -311,7 +311,7 @@ Page({
   },
   pickerChange(e){    
     that.setData({
-      ['formData.sex']:e.detail.value
+      ['formData.gender']:e.detail.value
     })
   },
   prompt(msg) {
@@ -331,26 +331,36 @@ Page({
       modal:!that.data.modal
     })
   },
-  submit(e){    
+  async submit(e){    
     let params = e.detail.value;  
     if (!that.WxValidate.checkForm(params)) {
       let error = this.WxValidate.errorList[0]
       that.prompt(error.msg)
       return false
-    }
-    params.videos = that.data.setVideos;
-    params.createTime = util.formatTime(new Date());
+    } 
     let fromData = wx.getStorageSync('fromData');
     console.log(fromData);
-
     let index = that.data.index;
-    console.log(index);
-    params.result = fromData[index].result;
-    let orders = wx.getStorageSync('orders')||[];
-    orders.push(params);
-    wx.setStorageSync('orders', orders);
-    wx.reLaunch({
-      url: '/pages/disability/order-list',
-    })
+    let data = {
+      info:params,
+      type:0,
+      content:{
+        result:fromData[index].result,
+        
+        videos:that.data.setVideos
+      }
+    }
+
+    let res = await Api.evaluationAdd(data);
+
+    console.log(res);
+    if(res.code==0){
+      wx.reLaunch({
+        url: '/pages/disability/order-list',
+      })
+    }else{
+      that.prompt(res.msg)
+    }
+    
   }
 })

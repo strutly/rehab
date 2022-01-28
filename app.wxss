@@ -26,3 +26,20 @@
   text-overflow: ellipsis;
   -o-text-overflow:ellipsis;
 } 
+/**底线**/
+.wrapper {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-top: 24rpx;
+}
+.wrapper .line {
+  flex: 1;
+  height: 0;  
+  border-bottom: 2rpx solid #ddd;
+}
+.wrapper .line-msg {
+  color: #ddd;
+  font-size: 30rpx;
+  margin: 0 12rpx;
+}

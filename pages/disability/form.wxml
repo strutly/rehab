@@ -1,8 +1,8 @@
 <wxs src="../../utils/Tools.wxs" module="tools"/>
+<view class="prompt" wx:if="{{prompt}}">{{promptMsg}}</view>
 <template name="show">
   <template is="{{question.checkType}}" data="{{question:question,index:index}}"/>
 </template>
-
 
 <template name="hidden">
   <template is="hidden_{{question.checkType}}" data="{{question:question,index:index}}"/>

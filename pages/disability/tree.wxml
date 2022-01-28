@@ -3,7 +3,7 @@
 <view class="prompt" wx:if="{{prompt}}">{{promptMsg}}</view>
 <view class="mask" catchtouchmove='true' wx:if="{{modal}}" bindtap="formModal"></view>
   <form bindsubmit="submit" class="form-box" wx:if="{{modal}}">
-    <input name="sex" value="{{formData.sex}}" hidden />
+    <input name="gender" value="{{formData.gender}}" hidden />
     
     <view class="form-item" >
       <view class="form-lable">姓名</view>
@@ -15,7 +15,7 @@
     </view>
     <view class="form-item" >
       <view class="form-lable">性别</view>      
-      <picker mode="selector" range="{{sexArray}}" class="form-value" bindchange="pickerChange">{{sexArray[formData.sex]}}</picker>
+      <picker mode="selector" range="{{genderArray}}" class="form-value" bindchange="pickerChange">{{genderArray[formData.gender]}}</picker>
     </view>
     <view class="form-item" >
       <view class="form-lable">年龄</view>

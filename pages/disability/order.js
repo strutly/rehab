@@ -1,4 +1,5 @@
 var that,videoContext;
+import Api from '../../config/api';
 Page({
   data: {
     chainData: {
@@ -208,11 +209,14 @@ Page({
       }]
     }
   },
-  onLoad(options) {
+  async onLoad(options) {
     that = this;
-    let orders = wx.getStorageSync('orders') || [];
-    let index = options.index||0;
-    let order = orders[index];
+
+    let id = options.id;
+    let res = await Api.evaluationDetail({id:id});
+    console.log(res);
+    
+    let order = res.data.content;
     let videos = order.videos;
     let result= order.result;
     let scores = Object.assign(result[0],result[1],result[2],result[3]);

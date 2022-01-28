@@ -196,9 +196,8 @@ Page({
   },
   screenChange(e){
     console.log(e);
-    let fullScreen = e.detail.fullScreen;
-    if(fullScreen){
-      direction = 90;
+    let fullScreen = e.detail.fullScreen;    
+    if(fullScreen){      
       videoContext.requestFullScreen();
       that.setData({
         direction:90

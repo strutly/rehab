@@ -3,7 +3,7 @@
   <input type="text" placeholder="患者姓名" placeholder-class="search-placeholder" bindinput="search"/>
 </view>
 
-<navigator url="/pages/disability/order?index={{index}}" class="item" wx:for="{{orders}}" wx:key="index">
+<navigator url="/pages/disability/order?id={{item.id}}" class="item" wx:for="{{orders}}" wx:key="index">
   <view class="item-head">
     <view class="item-title">{{item.name}}</view>
     <view class="item-value">
@@ -16,3 +16,9 @@
     <view class="item-value value-time">{{item.createTime}}</view>
   </view>  
 </navigator>
+
+<view class="wrapper" wx:if="{{endline}}">
+    <text class="line"></text>
+    <text class="line-msg">我是有底线的</text>
+    <text class="line"></text>
+  </view>

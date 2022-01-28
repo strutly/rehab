@@ -1,16 +1,10 @@
 // app.js
+const Api = require('./config/api');
 App({
-  onLaunch() {
-
-    let first = wx.getStorageSync('ifFirst')||first;
-    if(!first){
-      wx.removeStorageSync('orders');
-      wx.removeStorageSync('ifAuth');
-      wx.removeStorageSync('logs');
-      wx.setStorageSync('ifFirst', true);
-    }
+  onLaunch(options) {
+    console.log(options);
   },
   globalData: {
-    userInfo: null
+    ifAuth: false
   }
 })

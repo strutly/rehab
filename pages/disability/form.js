@@ -1,10 +1,11 @@
 var that;
 const app = getApp();
+const Api = require('../../config/api.js');
 Page({
   data: {
     scrollTop:0,
     fromChange:true,
-    ifAuth:wx.getStorageSync('ifAuth'),
+    ifAuth:false,
     questions: [{
       title: "肢体瘫痪",
       category:0,
@@ -262,6 +263,9 @@ Page({
   },
   onLoad: function (options) {
     that = this;
+    that.setData({
+      ifAuth:app.globalData.ifAuth
+    })
   },
   itemChange(e) {
     console.log(e);
@@ -294,33 +298,6 @@ Page({
         scrollTop:top + scrollTop - 15
       });
     });
-
-
-    // wx.createSelectorQuery().select(id).boundingClientRect(function(rect){
-    //     // 节点的上边界坐标
-    //     let scrollTop = that.data.scrollTop;
-
-    //     if(scrollTop>rect.top){
-
-    //     }
-
-
-    //     console.log(scrollTop);
-    //     // 节点的下边界坐标
-    //     console.log(rect)
-    //     console.log(rect.top);
-    //     // wx.pageScrollTo({
-    //     //   scrollTop:rect.top
-    //     // });
-    //     // that.setData({
-    //     //   scrollTop:rect.top
-    //     // })
-
-    // }).exec();
-    //console.log(top);
-
-    
-
   },
   radioChange(e) {
     console.log(e);
@@ -419,15 +396,41 @@ Page({
       fromChange:true
     })
   },
-  getPhoneNumber(e){
+  async getPhoneNumber(e){
     console.log(e);
     if(e.detail.errMsg==="getPhoneNumber:ok"){
-      wx.setStorageSync('ifAuth', true);
-      that.setData({
-        ifAuth:true
+      let code = await Api.getCode();      
+      let res = await Api.phone({
+        encryptedData:e.detail.encryptedData,
+        code:code,
+        iv:e.detail.iv
       })
-      that.submit();
+      console.log(res);
+      if(res.code==0){
+        wx.setStorageSync('token', res.data);
+        app.globalData.ifAuth = true;
+        that.setData({
+          ifAuth:true
+        });
+        that.submit();
+      }else{
+        that.prompt(res.msg);
+      }
+    }else{
+      that.prompt("您已拒绝授权获取手机号~");
     }
+  },
+  prompt(msg) {
+    that.setData({
+      prompt: true,
+      promptMsg: msg
+    });
+    setTimeout(function () {
+      that.setData({
+        prompt: false,
+        promptMsg: ''
+      })
+    }, 1500);
   },
   submit() {
     let fromData = wx.getStorageSync('fromData')||[];

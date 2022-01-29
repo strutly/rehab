@@ -1,3 +1,4 @@
+const app = getApp();
 var that;
 Page({
   data: {
@@ -10,6 +11,7 @@ Page({
     console.log(e);
     if(e.detail.errMsg==="getPhoneNumber:ok"){
       wx.setStorageSync('ifAuth', true);
+      app.globalData.ifAuth = true;
       that.setData({
         ifAuth:true
       })

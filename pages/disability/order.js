@@ -212,7 +212,7 @@ Page({
     that = this;
     let orders = wx.getStorageSync('orders') || [];
     let index = options.index||0;
-    let order = orders[index];
+    let order = orders.reverse()[index];
     let videos = order.videos;
     let result= order.result;
     let scores = Object.assign(result[0],result[1],result[2],result[3]);

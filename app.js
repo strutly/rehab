@@ -11,6 +11,7 @@ App({
     }
   },
   globalData: {
+    ifAuth:wx.getStorageSync('ifAuth')||false,
     userInfo: null
   }
 })

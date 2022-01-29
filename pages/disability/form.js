@@ -221,7 +221,7 @@ Page({
       type:15,
       show: false,
       checkType: 'checkbox',
-      check:[],    
+      check:[0],    
       checks: [{
         title:"进食困难",
         lable: "进食困难：在过去三月内，在进食和使用餐具上有困难.例如，用手拿食物或使用汤勺、筷子有困难",
@@ -262,6 +262,9 @@ Page({
   },
   onLoad: function (options) {
     that = this;
+    that.setData({
+      ifAuth:app.globalData.ifAuth
+    })
   },
   itemChange(e) {
     console.log(e);
